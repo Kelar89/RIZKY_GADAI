@@ -1,0 +1,1281 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Variabel Warna & Font Utama */
+:root {
+    --primary-blue: #1977f3;
+    --primary-blue-dark: #0056b3;
+    --dark-blue: #002b4e;
+    --light-blue-bg: #f0f7ff;
+    --white: #ffffff;
+    --text-color: #555;
+    --heading-color: var(--dark-blue);
+    --font-family-base: 'Poppins', sans-serif;
+}
+
+/* Style Global */
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-weight: 700; /* Made headings bolder */
+}
+
+.fw-bolder {
+    font-weight: 800 !important;
+}
+
+.bg-light-blue {
+    background-color: var(--light-blue-bg);
+}
+
+.bg-primary-dark {
+    background-color: var(--primary-blue);
+}
+
+/* Kustomisasi Komponen Bootstrap */
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 119, 243, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #1062d1;
+    border-color: #1062d1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(25, 119, 243, 0.4);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+/* Style Spesifik per Bagian */
+
+/* Header */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--white);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section .hashtag {
+    background-color: #e0f0ff;
+    color: var(--primary-blue);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.hero-image-container {
+    position: relative;
+    min-height: 400px;
+}
+
+/* Badge Bunga 0.7% */
+.hero-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 50px;
+    z-index: 10;
+    transform: rotate(15deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: #8ec5fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: #e0c3fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+@media (max-width: 991.98px) {
+    .hero-image-container {
+        display: none;
+    }
+}
+
+/* Product Item (with Glow Effect) */
+.product-item {
+    text-decoration: none;
+    color: var(--dark-blue);
+    display: block;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 2px solid #eee; /* Thicker border */
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.product-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-blue); /* Glow border color */
+    box-shadow: 0 10px 30px rgba(25, 119, 243, 0.2); /* Glow shadow */
+    color: var(--primary-blue);
+}
+.product-item-icon {
+    height: 48px; /* Set a fixed height for consistency */
+    margin-bottom: 0.5rem;
+}
+
+/* Feature Box (Keunggulan - White BG) */
+.feature-box {
+    padding: 20px;
+    color: var(--dark-blue);
+}
+.feature-box .feature-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Requirement Box (Persyaratan - REDESIGNED) */
+.req-box {
+    background-color: var(--light-blue-bg);
+    border-radius: 15px;
+    padding: 40px 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.req-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.req-box .req-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.req-box h5 {
+    color: var(--dark-blue);
+}
+
+/* Partnership Logos */
+.partner-logos .partner-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+.partner-logo {
+    max-height: 40px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Tombol WhatsApp Mengambang */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: var(--white);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+/* Footer Section (REDESIGNED) */
+.footer-section {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 60px 0 30px 0;
+}
+.footer-section h5, .footer-section h5 .bi {
+    color: var(--white);
+    font-size: 1.1rem;
+}
+.footer-link {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.footer-link:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
+.social-links .social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+.social-links .social-icon:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 110px; /* Positioned left of the WhatsApp button */
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: opacity 0.4s, visibility 0.4s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Variabel Warna & Font Utama */
+:root {
+    --primary-blue: #1977f3;
+    --primary-blue-dark: #0056b3;
+    --dark-blue: #002b4e;
+    --light-blue-bg: #f0f7ff;
+    --white: #ffffff;
+    --text-color: #555;
+    --heading-color: var(--dark-blue);
+    --font-family-base: 'Poppins', sans-serif;
+}
+
+/* Style Global */
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.fw-bolder {
+    font-weight: 800 !important;
+}
+
+.bg-light-blue {
+    background-color: var(--light-blue-bg);
+}
+
+.bg-primary-dark {
+    background-color: var(--primary-blue);
+}
+
+/* Kustomisasi Komponen Bootstrap */
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 119, 243, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #1062d1;
+    border-color: #1062d1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(25, 119, 243, 0.4);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+/* Style Spesifik per Bagian */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.hero-section {
+    background-color: var(--white);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section .hashtag {
+    background-color: #e0f0ff;
+    color: var(--primary-blue);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.hero-image-container {
+    position: relative;
+    min-height: 400px;
+}
+
+.hero-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 50px;
+    z-index: 10;
+    transform: rotate(15deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: #8ec5fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: #e0c3fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+@media (max-width: 991.98px) {
+    .hero-image-container {
+        display: none;
+    }
+}
+
+.product-item {
+    text-decoration: none;
+    color: var(--dark-blue);
+    display: block;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 2px solid #eee;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.product-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 10px 30px rgba(25, 119, 243, 0.2);
+    color: var(--primary-blue);
+}
+.product-item-icon {
+    height: 48px;
+    margin-bottom: 0.5rem;
+}
+
+.feature-box {
+    padding: 20px;
+    color: var(--dark-blue);
+}
+.feature-box .feature-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.req-box {
+    background-color: var(--light-blue-bg);
+    border-radius: 15px;
+    padding: 40px 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.req-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.req-box .req-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.req-box h5 {
+    color: var(--dark-blue);
+}
+
+.partner-logos .partner-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+.partner-logo {
+    max-height: 40px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: var(--white);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+.footer-section {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 60px 0 30px 0;
+}
+.footer-section h5, .footer-section h5 .bi {
+    color: var(--white);
+    font-size: 1.1rem;
+}
+.footer-link {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.footer-link:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
+.social-links .social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+.social-links .social-icon:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+.back-to-top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 110px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: opacity 0.4s, visibility 0.4s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+/* --- STYLE UNTUK HALAMAN SIMULASI --- */
+.form-wrapper {
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+.form-section-title {
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-blue-bg);
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.25rem rgba(25, 119, 243, 0.25);
+}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Variabel Warna & Font Utama */
+:root {
+    --primary-blue: #1977f3;
+    --primary-blue-dark: #0056b3;
+    --dark-blue: #002b4e;
+    --light-blue-bg: #f0f7ff;
+    --white: #ffffff;
+    --text-color: #555;
+    --heading-color: var(--dark-blue);
+    --font-family-base: 'Poppins', sans-serif;
+}
+
+/* Style Global */
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.fw-bolder {
+    font-weight: 800 !important;
+}
+
+.bg-light-blue {
+    background-color: var(--light-blue-bg);
+}
+
+.bg-primary-dark {
+    background-color: var(--primary-blue);
+}
+
+/* Kustomisasi Komponen Bootstrap */
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 119, 243, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #1062d1;
+    border-color: #1062d1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(25, 119, 243, 0.4);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+/* Style Spesifik per Bagian */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.hero-section {
+    background-color: var(--white);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section .hashtag {
+    background-color: #e0f0ff;
+    color: var(--primary-blue);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.hero-image-container {
+    position: relative;
+    min-height: 400px;
+}
+
+.hero-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 50px;
+    z-index: 10;
+    transform: rotate(15deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: #8ec5fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: #e0c3fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+@media (max-width: 991.98px) {
+    .hero-image-container {
+        display: none;
+    }
+}
+
+.product-item {
+    text-decoration: none;
+    color: var(--dark-blue);
+    display: block;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 2px solid #eee;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.product-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 10px 30px rgba(25, 119, 243, 0.2);
+    color: var(--primary-blue);
+}
+.product-item-icon {
+    height: 48px;
+    margin-bottom: 0.5rem;
+}
+
+.feature-box {
+    padding: 20px;
+    color: var(--dark-blue);
+}
+.feature-box .feature-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.req-box {
+    background-color: var(--light-blue-bg);
+    border-radius: 15px;
+    padding: 40px 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.req-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.req-box .req-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.req-box h5 {
+    color: var(--dark-blue);
+}
+
+.partner-logos .partner-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+.partner-logo {
+    max-height: 40px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: var(--white);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+.footer-section {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 60px 0 30px 0;
+}
+.footer-section h5, .footer-section h5 .bi {
+    color: var(--white);
+    font-size: 1.1rem;
+}
+.footer-link {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.footer-link:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
+.social-links .social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+.social-links .social-icon:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+.back-to-top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 110px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: opacity 0.4s, visibility 0.4s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+.form-wrapper {
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+.form-section-title {
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-blue-bg);
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.25rem rgba(25, 119, 243, 0.25);
+}
+
+/* --- STYLE UNTUK HALAMAN MITRA --- */
+.page-hero-section {
+    padding: 60px 0;
+}
+.benefit-list li {
+    font-size: 1.1rem;
+}
+.mitra-benefit-card {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+}
+.mitra-benefit-card img {
+    max-height: 50px;
+}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Variabel Warna & Font Utama */
+:root {
+    --primary-blue: #1977f3;
+    --primary-blue-dark: #0056b3;
+    --dark-blue: #002b4e;
+    --light-blue-bg: #f0f7ff;
+    --white: #ffffff;
+    --text-color: #555;
+    --heading-color: var(--dark-blue);
+    --font-family-base: 'Poppins', sans-serif;
+}
+
+/* Style Global */
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    font-weight: 700;
+}
+
+.fw-bolder {
+    font-weight: 800 !important;
+}
+
+.bg-light-blue {
+    background-color: var(--light-blue-bg);
+}
+
+.bg-primary-dark {
+    background-color: var(--primary-blue);
+}
+
+/* Kustomisasi Komponen Bootstrap */
+.btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(25, 119, 243, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #1062d1;
+    border-color: #1062d1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(25, 119, 243, 0.4);
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--dark-blue);
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+/* Style Spesifik per Bagian */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.hero-section {
+    background-color: var(--white);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section .hashtag {
+    background-color: #e0f0ff;
+    color: var(--primary-blue);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.hero-image-container {
+    position: relative;
+    min-height: 400px;
+}
+
+.hero-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 50px;
+    z-index: 10;
+    transform: rotate(15deg);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: #8ec5fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.hero-badge::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: #e0c3fc;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+@media (max-width: 991.98px) {
+    .hero-image-container {
+        display: none;
+    }
+}
+
+.product-item {
+    text-decoration: none;
+    color: var(--dark-blue);
+    display: block;
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 2px solid #eee;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.product-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-blue);
+    box-shadow: 0 10px 30px rgba(25, 119, 243, 0.2);
+    color: var(--primary-blue);
+}
+.product-item-icon {
+    height: 48px;
+    margin-bottom: 0.5rem;
+}
+
+.feature-box {
+    padding: 20px;
+    color: var(--dark-blue);
+}
+.feature-box .feature-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.req-box {
+    background-color: var(--light-blue-bg);
+    border-radius: 15px;
+    padding: 40px 20px;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.req-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.req-box .req-icon {
+    font-size: 64px;
+    color: var(--primary-blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.req-box h5 {
+    color: var(--dark-blue);
+}
+
+.partner-logos .partner-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+.partner-logo {
+    max-height: 40px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: var(--white);
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+.footer-section {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    padding: 60px 0 30px 0;
+}
+.footer-section h5, .footer-section h5 .bi {
+    color: var(--white);
+    font-size: 1.1rem;
+}
+.footer-link {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.footer-link:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
+.social-links .social-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+.social-links .social-icon:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+.back-to-top {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 110px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 99;
+    transition: opacity 0.4s, visibility 0.4s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    transform: scale(1.1);
+    color: var(--white);
+}
+
+.form-wrapper {
+    background-color: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+.form-section-title {
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--light-blue-bg);
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.25rem rgba(25, 119, 243, 0.25);
+}
+
+.page-hero-section {
+    padding: 60px 0;
+}
+.benefit-list li {
+    font-size: 1.1rem;
+}
+.mitra-benefit-card {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+}
+.mitra-benefit-card img {
+    max-height: 50px;
+}
+
+/* --- STYLE UNTUK HALAMAN PROMOSI --- */
+.promo-card {
+    background-color: var(--white);
+    border-radius: 15px;
+    overflow: hidden; /* Agar gambar di dalam card ikut melengkung */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.promo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+.promo-card .promo-image {
+    width: 100%;
+    height: auto;
+}
+.promo-card .promo-card-body {
+    padding: 25px;
+}
